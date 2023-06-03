@@ -12,14 +12,14 @@ const Pano = () => {
         if (isClient) {
             const PANOLENS = require('panolens'); // Use require for server-side compatibility
 
-            const viewer = new PANOLENS.Viewer({ container: document.getElementById('panorama-viewer') });
+            const viewer = new PANOLENS.Viewer({ container: document.getElementById('panoramic-small') });
 
-            const panorama = new PANOLENS.ImagePanorama('assets/image/natpano.jpg');
+            const panorama = new PANOLENS.ImagePanorama('assets/image/Panoramic-2-small.png');
             viewer.add(panorama);
         }
     }, [isClient]);
 
-    return <div id='panorama-viewer' className='w-full h-full' />;
+    return <div id='panoramic-small' className='w-full h-full' />;
 };
 
 export default Pano;

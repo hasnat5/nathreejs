@@ -3,8 +3,9 @@ import React from 'react'
 
 const page = () => {
     return (
-        <section className='overflow-hidden container w-screen h-screen relative'>
-            <h2 className='text-center text-5xl font-bold absolute left-0 right-0 mx-auto'>virtuwed testing</h2>
+        <section className='container min-w-full overflow-hidden h-screen relative'>
+
+            <h2 className='text-center text-5xl font-bold absolute left-0 right-0 mx-auto'>panoramic small</h2>
             <Pano />
         </section>
     )
