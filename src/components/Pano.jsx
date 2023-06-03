@@ -1,17 +1,25 @@
 'use client'
-import { useEffect } from 'react';
-import * as PANOLENS from 'panolens';
+import { useEffect, useState } from 'react';
 
 const Pano = () => {
-    useEffect(() => {
-        const viewer = new PANOLENS.Viewer({ container: document.getElementById('panorama-viewer') });
+    const [isClient, setIsClient] = useState(false);
 
-        const panorama = new PANOLENS.ImagePanorama('assets/image/natpano.jpg');
-        viewer.add(panorama);
+    useEffect(() => {
+        setIsClient(true);
     }, []);
 
-    return <div id='panorama-viewer' style={{ width: '100%', height: '500px' }} />;
+    useEffect(() => {
+        if (isClient) {
+            const PANOLENS = require('panolens'); // Use require for server-side compatibility
+
+            const viewer = new PANOLENS.Viewer({ container: document.getElementById('panorama-viewer') });
+
+            const panorama = new PANOLENS.ImagePanorama('assets/image/natpano.jpg');
+            viewer.add(panorama);
+        }
+    }, [isClient]);
+
+    return <div id='panorama-viewer' className='w-full h-full' />;
 };
 
 export default Pano;
-
